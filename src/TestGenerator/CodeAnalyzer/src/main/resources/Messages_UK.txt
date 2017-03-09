@@ -1,0 +1,118 @@
+
+% General error messages
+
+internal = Internal error
+
+% Main program error messages
+
+main_incorrect_params = Incorrect call params. java -jar Analyzer.jar routeToBeginCrowling routeOfXMLDefinitionFiles
+
+% Crowler error messages
+
+crowler_directory_not_found = Directory does not exist or is not readable
+
+% Parser error messages
+	% General
+parser_no_before_header_marker = The marked file has no general markers before class header
+	% First step
+parser_wrong_header_markers_number_less = The general class pattern markers must always contain @patter and @patterElement type
+parser_wrong_header_markers_number_much = The general class pattern markers can't have more than 3 markers
+parser_wrong_header_first_marker = The first marker must be @pattern
+parser_pattern_marker_without_type = The marker @pattern must always have type
+parser_pattern_marker_too_much_params = The marker @pattern can only have type and identifier
+parser_pattern_marker_id_between = In marker @pattern the identifier must be between < and >
+parser_pattern_marker_id_special_characters = In marker @pattern the identifier can not contain special characters
+parser_pattern_element_not_found = The second marker must be @patternElement
+parser_pattern_element_type_not_found = The marker @patternElement must always have type
+parser_pattern_element_type_not_identified = @pattern type not identified
+parser_pattern_element_builder_wrong = The third before head marker can only be @patternElement Builder < sentence >
+parser_multiple_use_of_pattern_id = More than one patter general information class has the same identifier
+	% Second step
+parser_multiple_pattern_group_membership = More than one used pattern identifier are found in extends or implements
+parser_multiple_pattern_types_by_identifier = The pattern type of the identifier and the file doesn't match
+parser_pattern_class_identifier_not_matched = No patter general information class has the same identifier
+parser_pattern_lonelly_general_class = A general class has no more classes related
+	% Third step
+parser_no_parser_for_pattern = No parser has been defined to pattern
+	% Miscellaneous
+parser_get_class_identifier_id_not_found = No class identifier found before extends, implements or {
+parser_file_must_contain_package_definition = The file must contain the package definition
+parser_file_package_definition_must_be_valid = The file must contain a valid package definition
+parser_validation_error = The patter %s failed the validation:\n\n
+
+% General Parser errors
+parser_wrong_method_signature_parameters_type = Wrong method signature. All parameters must always contain type and name
+parser_wrong_method_signature_parameters = Wrong method signature. It must always contain "( [...] )" after class name
+
+% State Parser errors
+state_parser_element_not_known = The state pattern elements are only "State", "Context" and "ConcreteState"
+state_parser_multiple_context = The pattern state can only handle one context class
+state_parser_context_not_found = The pattern state must always have one context class
+state_parser_state_wrong_parameter_number = Wrong marker parameter number, it only can be @patternElement State [orderdep | nonorderdep]
+state_parser_state_wrong_parameter = Wrong parameter at @patternElement State, only "orderdep" and "nonorderdep" are permited
+state_parser_wrong_method_signature_before_parameters = Wrong method signature. It must always contain "visibility returnType name" before parameters
+state_parser_wrong_method_signature_no_context = Wrong method signature. It must always contain the context as parameter
+state_parser_wrong_method_signature_multiple_context = Wrong method signature. It can only contain one context
+state_parser_no_actions = The generic state has no action (method public or protected)
+	% Concrete state
+state_parser_concrete_state_wrong_parameter_number = Wrong marker parameter number, it only can be @patternElement ConcreteState [initial] [final]
+state_parser_concrete_state_wrong_parameter = Wrong marker parameters, it only can be @patternElement ConcreteState [initial] [final]
+state_parser_concrete_state_wrong_parameter_initial = Wrong marker parameters, two initial found, it only can be @patternElement ConcreteState [initial] [final]
+state_parser_concrete_state_wrong_parameter_final = Wrong marker parameters, two final found, it only can be @patternElement ConcreteState [initial] [final]
+state_parser_concrete_state_not_found = No ConcreteState class found for this State pattern
+state_parser_wrong_no_existent_action = A method does not exists as public or protected in the abstract state
+state_parser_marker_not_known = Inside the ConcreteState class only can be @patternAction makers
+state_parser_wrong_action_less_parameters = A state action must have almost Transition and destinyState parameters
+state_parser_wrong_action_too_much_parameters = A state action cant't have more parameters than Transition, destinyState and <parameters>
+state_parser_wrong_action_parameter_not_known = A state only can be Transition
+state_parser_wrong_action_third_parameter = A state action third parameter must be between < and >
+state_parser_wrong_action_third_parameter_no_context = A state third parameter must have a context
+state_parser_wrong_action_third_parameter_more_context = A state third parameter can't have more than one context
+	% Context
+state_parser_context_wrong_parameter_number = Wrong marker parameter number, it only can be @patternElement Context
+
+% State Pattern Validation
+state_validation_transition_no_initial_state = Error: The state "%s" has no defined an initial state
+state_validation_transition_repited = Error: The state "%s" has a transition written multiple times
+state_validation_transition_no_action = Error: The state \"%s\" has defined a transition upon an invalid action \"%s\"
+state_validation_transition_no_destiny = Error: The state \"%s\" has defined a transition with an unknown destiny \"%s\"
+state_validation_multiple_initial_states = Error: More than one initial state has been defined: %s, %s
+state_validation_unreachable_states = Warning The next states are unreachables from the initial state: 
+
+
+% Strategy Parser errors
+strategy_parser_element_not_known = The strategy pattern elements are only "Strategy" and "ConcreteStrategy"
+	% Strategy
+strategy_parser_strategy_class_header_too_much_markers = The strategy type class can only have two markers in the header block
+strategy_parser_strategy_class_marker_not_admited = The Strategy class can only contain @patternElement markers
+strategy_parser_element_not_action_found = The general Strategy class can only contain @patternElement Action
+	% Actions
+strategy_parser_element_action_multiple_actions_same_block = Only one Action can be defined in the same commentBlock
+strategy_parser_element_action_multiple_comparisons_same_block = Only one Comparison can be defined in the same commentBlock
+strategy_parser_element_action_action_more_parameters = @patternElement Action can't have more parameters
+strategy_parser_element_action_comparison_no_more_parameters = @patternElement Comparison must have one type of "Equals", "Comparable" or "Comparator"
+strategy_parser_element_action_comparison_not_known = @patternElement Comparison type only can have the types "Equals", "Comparable" or "Comparator"
+strategy_parser_element_action_comparison_equals_more_parameters = @patternElement Comparison Equals can't have more parameters
+strategy_parser_element_action_comparison_comparable_more_parameters = @patternElement Comparison Comparable can't have more parameters
+strategy_parser_element_action_comparison_comparator_one_parameter = @patternElement Comparison Comparator only can have none, two or three aditional parameters
+strategy_parser_element_action_comparison_comparator_more_parameters = @patternElement Comparison Comparator only can have none, two or three aditional parameters
+strategy_parser_element_action_comparison_comparator_wrong_parameters = @patternElement Comparison Comparator aditional parameters must be between < and >
+strategy_parser_wrong_parameter_set_less_parameters = @patternElement Execution must have a set of values as parameter
+strategy_parser_wrong_parameter_set_too_much_parameters = @patternElement Execution only can have one set of values as parameter
+strategy_parser_wrong_parameter_set_second_parameter = @patternElement Execution parameter must be between < and >
+	% Concrete Strategy
+strategy_parser_concrete_strategy_more_marked_blocks = @patternElement ConcreteStrategy must have no more block elements than the header one
+	
+% Strategy Pattern Validation
+strategy_validation_only_one_concrete_strategy = It's needed almost two concrete strategies in order to be able to execute the tests
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<patterns>
+    <statePattern>
+        <id>ExampleCorrect</id>
+        <nonorderdependent/>
+        <generalstate>
+            <package>pattern.state.ExampleCorrect</package>
+            <classname>State</classname>
+        </generalstate>
+        <actions>
+            <action>action1</action>
+            <action>action2</action>
+            <action>action3</action>
+        </actions>
+        <context>
+            <package>pattern.state.ExampleCorrect</package>
+            <classname>Context</classname>
+            <builder>new State1Context (new State1())</builder>
+        </context>
+        <states>
+            <package>pattern.state.ExampleCorrect</package>
+            <state>
+                <classname>State1</classname>
+                <initialstate/>
+                <transitions>
+                    <transition>
+                        <action>action1</action>
+                        <destiny>State2</destiny>
+                    </transition>
+                    <transition>
+                        <action>action2</action>
+                        <destiny>State1</destiny>
+                        <parameters>
+                            <parameter position="0">"test"</parameter>
+                            <parameter position="1">context</parameter>
+                            <parameter position="2">5</parameter>
+                        </parameters>
+                    </transition>
+                    <transition>
+                        <action>action3</action>
+                        <destiny>State2</destiny>
+                        <parameters>
+                            <parameter position="0">context</parameter>
+                        </parameters>
+                    </transition>
+                </transitions>
+            </state>
+            <state>
+                <classname>State2</classname>
+                <transitions>
+                    <transition>
+                        <action>action1</action>
+                        <destiny>State3</destiny>
+                    </transition>
+                    <transition>
+                        <action>action2</action>
+                        <destiny>State3</destiny>
+                        <parameters>
+                            <parameter position="0">"test"</parameter>
+                            <parameter position="1">context</parameter>
+                            <parameter position="2">5</parameter>
+                        </parameters>
+                    </transition>
+                </transitions>
+            </state>
+            <state>
+                <classname>State3</classname>
+                <transitions>
+                    <transition>
+                        <action>action1</action>
+                        <destiny>State1</destiny>
+                    </transition>
+                    <transition>
+                        <action>action3</action>
+                        <destiny>State2</destiny>
+                    </transition>
+                </transitions>
+            </state>
+        </states>
+    </statePattern>
+    <statePattern>
+        <id>ExampleNotOrderDependent</id>
+        <nonorderdependent/>
+        <generalstate>
+            <package>pattern.state.ExampleNotOrderDependent</package>
+            <classname>State</classname>
+        </generalstate>
+        <actions>
+            <action>action1</action>
+            <action>action2</action>
+            <action>action3</action>
+        </actions>
+        <context>
+            <package>pattern.state.ExampleNotOrderDependent</package>
+            <classname>Context</classname>
+            <builder>new State1Context (new State1())</builder>
+        </context>
+        <states>
+            <package>pattern.state.ExampleNotOrderDependent</package>
+            <state>
+                <classname>State1</classname>
+                <initialstate/>
+                <transitions>
+                    <transition>
+                        <action>action1</action>
+                        <destiny>State2</destiny>
+                    </transition>
+                    <transition>
+                        <action>action2</action>
+                        <destiny>State2</destiny>
+                        <parameters>
+                            <parameter position="0">"test"</parameter>
+                            <parameter position="1">context</parameter>
+                            <parameter position="2">5</parameter>
+                        </parameters>
+                    </transition>
+                    <transition>
+                        <action>action3</action>
+                        <destiny>State2</destiny>
+                        <parameters>
+                            <parameter position="0">context</parameter>
+                        </parameters>
+                    </transition>
+                </transitions>
+            </state>
+            <state>
+                <classname>State2</classname>
+                <transitions>
+                    <transition>
+                        <action>action1</action>
+                        <destiny>State3</destiny>
+                    </transition>
+                    <transition>
+                        <action>action2</action>
+                        <destiny>State3</destiny>
+                        <parameters>
+                            <parameter position="0">"test"</parameter>
+                            <parameter position="1">context</parameter>
+                            <parameter position="2">5</parameter>
+                        </parameters>
+                    </transition>
+                    <transition>
+                        <action>action3</action>
+                        <destiny>State3</destiny>
+                    </transition>
+                </transitions>
+            </state>
+            <state>
+                <classname>State3</classname>
+                <transitions>
+                    <transition>
+                        <action>action1</action>
+                        <destiny>State1</destiny>
+                    </transition>
+                    <transition>
+                        <action>action2</action>
+                        <destiny>State1</destiny>
+                        <parameters>
+                            <parameter position="0">"test"</parameter>
+                            <parameter position="1">context</parameter>
+                            <parameter position="2">5</parameter>
+                        </parameters>
+                    </transition>
+                    <transition>
+                        <action>action3</action>
+                        <destiny>State1</destiny>
+                    </transition>
+                </transitions>
+            </state>
+        </states>
+    </statePattern>
+    <statePattern>
+        <id>ExampleOrderDependent</id>
+        <orderdependent/>
+        <generalstate>
+            <package>pattern.state.ExampleOrederDependent</package>
+            <classname>State</classname>
+        </generalstate>
+        <actions>
+            <action>action1</action>
+            <action>action2</action>
+            <action>action3</action>
+        </actions>
+        <context>
+            <package>pattern.state.ExampleOrederDependent</package>
+            <classname>Context</classname>
+            <builder>new State1Context (new State1())</builder>
+        </context>
+        <states>
+            <package>pattern.state.ExampleOrederDependent</package>
+            <state>
+                <classname>State1</classname>
+                <initialstate/>
+                <transitions>
+                    <transition>
+                        <action>action1</action>
+                        <destiny>State2</destiny>
+                    </transition>
+                    <transition>
+                        <action>action2</action>
+                        <destiny>State2</destiny>
+                        <parameters>
+                            <parameter position="0">"test"</parameter>
+                            <parameter position="1">context</parameter>
+                            <parameter position="2">-5</parameter>
+                        </parameters>
+                    </transition>
+                    <transition>
+                        <action>action3</action>
+                        <destiny>State2</destiny>
+                        <parameters>
+                            <parameter position="0">context</parameter>
+                        </parameters>
+                    </transition>
+                </transitions>
+            </state>
+            <state>
+                <classname>State2</classname>
+                <transitions>
+                    <transition>
+                        <action>action1</action>
+                        <destiny>State3</destiny>
+                    </transition>
+                    <transition>
+                        <action>action2</action>
+                        <destiny>State3</destiny>
+                        <parameters>
+                            <parameter position="0">"test"</parameter>
+                            <parameter position="1">context</parameter>
+                            <parameter position="2">5</parameter>
+                        </parameters>
+                    </transition>
+                    <transition>
+                        <action>action3</action>
+                        <destiny>State3</destiny>
+                    </transition>
+                </transitions>
+            </state>
+            <state>
+                <classname>State3</classname>
+                <transitions>
+                    <transition>
+                        <action>action1</action>
+                        <destiny>State1</destiny>
+                    </transition>
+                    <transition>
+                        <action>action2</action>
+                        <destiny>State1</destiny>
+                        <parameters>
+                            <parameter position="0">"est"</parameter>
+                            <parameter position="1">context</parameter>
+                            <parameter position="2">5</parameter>
+                        </parameters>
+                    </transition>
+                    <transition>
+                        <action>action3</action>
+                        <destiny>State1</destiny>
+                    </transition>
+                </transitions>
+            </state>
+        </states>
+    </statePattern>
+    <statePattern>
+        <id>ExampleWrongTransitions</id>
+        <nonorderdependent/>
+        <generalstate>
+            <package>pattern.state.ExampleWrongTransitions</package>
+            <classname>State</classname>
+        </generalstate>
+        <actions>
+            <action>action1</action>
+            <action>action2</action>
+            <action>action3</action>
+        </actions>
+        <context>
+            <package>pattern.state.ExampleWrongTransitions</package>
+            <classname>Context</classname>
+            <builder>new State1Context (new State1())</builder>
+        </context>
+        <states>
+            <package>pattern.state.ExampleWrongTransitions</package>
+            <state>
+                <classname>State1</classname>
+                <initialstate/>
+                <transitions>
+                    <transition>
+                        <action>action1</action>
+                        <destiny>State2</destiny>
+                    </transition>
+                    <transition>
+                        <action>action2</action>
+                        <destiny>State1</destiny>
+                        <parameters>
+                            <parameter position="0">"test"</parameter>
+                            <parameter position="1">context</parameter>
+                            <parameter position="2">5</parameter>
+                        </parameters>
+                    </transition>
+                    <transition>
+                        <action>action3</action>
+                        <destiny>State2</destiny>
+                        <parameters>
+                            <parameter position="0">context</parameter>
+                        </parameters>
+                    </transition>
+                </transitions>
+            </state>
+            <state>
+                <classname>State2</classname>
+                <transitions>
+                    <transition>
+                        <action>action1</action>
+                        <destiny>State3</destiny>
+                    </transition>
+                    <transition>
+                        <action>action2</action>
+                        <destiny>State3</destiny>
+                        <parameters>
+                            <parameter position="0">"test"</parameter>
+                            <parameter position="1">context</parameter>
+                            <parameter position="2">5</parameter>
+                        </parameters>
+                    </transition>
+                </transitions>
+            </state>
+            <state>
+                <classname>State3</classname>
+                <transitions>
+                    <transition>
+                        <action>action1</action>
+                        <destiny>State1</destiny>
+                    </transition>
+                    <transition>
+                        <action>action3</action>
+                        <destiny>State2</destiny>
+                    </transition>
+                </transitions>
+            </state>
+        </states>
+    </statePattern>
+</patterns>
